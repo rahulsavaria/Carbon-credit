@@ -40,7 +40,7 @@ at least once.
 git clone https://github.com/rahulsavaria/Carbon-credit.git
 cd Carbon-credit
 npm install
-npm run dev          # http://localhost:3000
+npm run dev          # http://127.0.0.1:3000
 ```
 
 For a production build:
@@ -202,14 +202,23 @@ electricity, or network transport.
 ## Privacy
 
 - Everything runs locally. The app makes no outbound requests.
-- It binds to `localhost` by default.
 - Your transcripts are read, never copied, modified or transmitted.
 - There is nothing to log in to and no API key to supply.
 
-Your transcripts contain your prompts and your code. If you expose this app on
-a network interface, anyone who can reach it can see your project names, token
-volumes and activity pattern. Keep it on localhost unless you have a reason
-not to.
+**It binds to `127.0.0.1` only.** Both `npm run dev` and `npm run start` pass
+`-H 127.0.0.1`, because Next.js otherwise listens on every interface, and this
+app surfaces your project names, token volumes and daily activity pattern to
+anyone who can reach the port. That is a poor default for something reading
+your prompts and your code.
+
+If you deliberately want it reachable from your network, that is an explicit
+opt-in:
+
+```bash
+npm run start:network     # binds 0.0.0.0
+```
+
+There is no authentication, so only do that on a network you trust.
 
 ## Routes
 
