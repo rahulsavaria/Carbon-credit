@@ -1,5 +1,8 @@
 # Carbon Credit
 
+[![licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D20-green.svg)](package.json)
+
 A local dashboard that estimates the electricity and carbon associated with
 your own [Claude Code](https://claude.com/claude-code) usage, broken down per
 day and per week, and expressed in units you can actually picture.
@@ -34,8 +37,8 @@ Requirements: **Node.js 20 or newer** and a machine that has run Claude Code
 at least once.
 
 ```bash
-git clone <this-repo>
-cd carbon-credit
+git clone https://github.com/rahulsavaria/Carbon-credit.git
+cd Carbon-credit
 npm install
 npm run dev          # http://localhost:3000
 ```
